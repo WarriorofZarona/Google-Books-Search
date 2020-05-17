@@ -1,12 +1,11 @@
-import React from "react";
-import { Container } from "react-bulma-components";
+import React, { useEffect } from "react";
 
-function Search() {
+
+function Search(props) {
+
 
     return (
-        <Container>
-
-        </Container>
+        <h1 onClick={props.searchBook}>This is a test render.</h1>
     )
 };
 
