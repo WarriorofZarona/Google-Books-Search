@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
+import BookSearch from "../../components/BookSearch";
+import BookResults from "../../components/BookResults";
 
 
 function Search(props) {
 
 
     return (
-        <h1 onClick={props.searchBook}>This is a test render for Search.</h1>
+        <div>
+            <BookSearch />
+            <BookResults />
+        </div>
     )
 };
 
