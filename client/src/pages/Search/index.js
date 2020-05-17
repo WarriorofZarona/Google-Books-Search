@@ -5,7 +5,7 @@ function Search(props) {
 
 
     return (
-        <h1 onClick={props.searchBook}>This is a test render.</h1>
+        <h1 onClick={props.searchBook}>This is a test render for Search.</h1>
     )
 };
 
