@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import Search from "./pages/Search";
 import API from "./utils/API";
-import { PromiseProvider } from "mongoose";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
 
@@ -13,10 +14,11 @@ function App() {
   };
 
   return (
-    <div>
+    <Router>
+      <Navbar />
       <Search searchBook={searchBook} />
       <h1>Test</h1>
-    </div>
+    </Router>
   )
 }
 
