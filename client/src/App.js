@@ -3,6 +3,7 @@ import "./App.css";
 import Search from "./pages/Search";
 import API from "./utils/API";
 import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <br />
+      <Header />
       <Search searchBook={searchBook} />
       <h1>Test</h1>
     </Router>
