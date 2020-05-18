@@ -8,13 +8,14 @@ function BookSearch() {
             <div className="jumbotron border border-dark p-2">
                 Book Search
             <form className="search" >
-                    <div className="form-group text-center">
+                    <div className="form-group text-right">
                         <input
                             type="text"
                             className="form-control"
                             placeholder="Enter your search"
                             id="book"
                         />
+                        <button type="submit" className="btn btn-info mt-2">Submit</button>
                     </div>
                 </form >
             </div>
