@@ -10,6 +10,13 @@ function Search() {
 
     const [books, setBooks] = useState({ results: [] });
     const [userQuery, setUserQuery] = useState("");
+    const [saveBooks, setSaveBooks] = useState({
+        title: "",
+        authors: [],
+        description: "",
+        image: "",
+        link: ""
+    })
 
     useEffect(() => searchBooks("Coding"), []);
 

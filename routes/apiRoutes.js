@@ -23,15 +23,13 @@ router.get("/api/books", (req, res) => {
 
 router.delete("/api/books/:id", (res, res) => {
     const id = req.params.id;
-    Books.findByIdAndRemove(
-        id,
-        (error, data) => {
-            if (error) {
-                res.send(error);
-            } else {
-                res.send(data);
-            }
+    Books.findByIdAndRemove(id, (error, data) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.send(data);
         }
+    }
     )
 })
 
