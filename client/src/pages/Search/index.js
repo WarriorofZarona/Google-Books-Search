@@ -4,6 +4,7 @@ import ResultWrapper from "../../components/ResultWrapper";
 import BookResults from "../../components/BookResults";
 import { List } from "../../components/List";
 import API from "../../utils/API";
+import { PromiseProvider } from "mongoose";
 
 
 function Search() {
@@ -24,6 +25,11 @@ function Search() {
         const { value } = event.target;
         setUserQuery(value);
     };
+
+    function handleInputSavedChange(event) {
+        const { name, value } = event.target;
+        setSaveBooks({ ...props, [name]: value })
+    }
 
     function searchBooks(query) {
         API.getBooks(query)
