@@ -6,7 +6,8 @@ function ResultWrapper(props) {
     return (
         <Container>
             <div className="jumbotron border border-dark p-2">
-                Book Results
+                <strong>Book Results</strong>
+                <br />
                 {props.children}
             </div>
         </Container>
