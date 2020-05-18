@@ -16,7 +16,7 @@ function BookResults(props) {
                         </p>
                     </div>
                     <div className="col-6 text-right">
-                        <button className="btn btn-info m-1" type="button">View</button>
+                        <a href={props.link}><button className="btn btn-info m-1" type="button">View</button></a>
                         <button className="btn btn-info m-1" type="button" >Save</button>
                     </div>
                 </div>

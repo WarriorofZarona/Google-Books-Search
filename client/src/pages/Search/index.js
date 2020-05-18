@@ -10,7 +10,7 @@ function Search() {
 
     const [books, setBooks] = useState({ results: [] });
 
-    useEffect(() => searchBooks("Harry Potter"), []);
+    useEffect(() => searchBooks("Twilight"), []);
 
     function searchBooks(query) {
         API.getBooks(query)
