@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./Container";
 
-function BookSearch() {
+function BookSearch(props) {
 
     return (
         <Container>
@@ -14,8 +14,9 @@ function BookSearch() {
                             className="form-control"
                             placeholder="Enter your search"
                             id="book"
+                            onChange={props.inputChange}
                         />
-                        <button type="submit" className="btn btn-info mt-2">Submit</button>
+                        <button type="submit" onClick={props.handler} className="btn btn-info mt-2">Submit</button>
                     </div>
                 </form >
             </div>

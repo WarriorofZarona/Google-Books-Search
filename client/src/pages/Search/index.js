@@ -9,8 +9,14 @@ import API from "../../utils/API";
 function Search() {
 
     const [books, setBooks] = useState({ results: [] });
+    const [userQuery, setUserQuery] = useState("");
 
-    useEffect(() => searchBooks("Twilight"), []);
+    useEffect(() => searchBooks("Coding"), []);
+
+    function handleInputChange(event) {
+        const { value } = event.target;
+        setUserQuery(value);
+    };
 
     function searchBooks(query) {
         API.getBooks(query)
@@ -20,20 +26,27 @@ function Search() {
             .catch(err => console.log(err));
     };
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        searchBooks(userQuery);
+    };
+
     return (
         <div>
-            <BookSearch handler={searchBooks} />
+            <BookSearch inputChange={handleInputChange} handler={handleSubmit} />
             <ResultWrapper>
                 <List>
-                    {books.results.map(result => (
-                        <BookResults
-                            title={result.volumeInfo.title}
-                            authors={result.volumeInfo.authors}
-                            description={result.volumeInfo.description}
-                            image={result.volumeInfo.imageLinks.thumbnail}
-                            link={result.volumeInfo.infoLink}
-                        />
-                    ))}
+                    {books ?
+                        books.results.map(result => (
+                            <BookResults
+                                title={result.volumeInfo.title}
+                                authors={result.volumeInfo.authors}
+                                description={result.volumeInfo.description}
+                                image={result.volumeInfo.imageLinks.thumbnail}
+                                link={result.volumeInfo.infoLink}
+                            />
+                        ))
+                        : <h3 className="text-center">No results to show!</h3>}
                 </List>
             </ResultWrapper>
         </div>
