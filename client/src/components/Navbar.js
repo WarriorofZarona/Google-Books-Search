@@ -15,7 +15,7 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className={location.pathname === "/" ? "nav-item active" : location.pathname === "/search" ? "nav-item active" : "nav-item"}>
-                        <Link className="nav-link" to="/search">Search <span class=" sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/search">Search <span className=" sr-only">(current)</span></Link>
                     </li>
                     <li className={location.pathname === "/saved" ? "nav-item active" : "nav-item"}>
                         <Link className="nav-link" to="/saved">Saved</Link>

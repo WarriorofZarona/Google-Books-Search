@@ -1,14 +1,14 @@
 import React from "react";
 import Container from "./Container";
 
-function BookResults() {
+function BookResults(props) {
 
     return (
-        <Container>
-            <div className="jumbotron border border-dark p-2">
-                Book Results
-            </div>
-        </Container>
+
+        <div className="jumbotron border border-dark p-2">
+            Book Results
+        </div>
+
     )
 };
 
