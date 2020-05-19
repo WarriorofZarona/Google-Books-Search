@@ -21,13 +21,13 @@ function BookResults(props) {
         <li className="list-group-item border border-dark p-2 m-2 p-1">
             <Container>
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-8">
                         <h4>{props.title}</h4>
                         {props.authors.length ?
                             <p> Written by {props.authors.map((author, index, arr) => (index === arr.length - 1 ? author : author + ", "))}
                             </p> : <p>No authors to display</p>}
                     </div>
-                    <div className="col-6 text-right">
+                    <div className="col-4 text-right">
                         <a href={props.link}><button className="btn btn-info m-1" type="button">View</button></a>
                         <button className="btn btn-info m-1" onClick={saveBooks} type="button">Save</button>
                     </div>

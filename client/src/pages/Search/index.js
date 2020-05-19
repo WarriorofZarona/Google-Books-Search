@@ -10,19 +10,11 @@ function Search() {
 
     const [books, setBooks] = useState({ results: [] });
     const [userQuery, setUserQuery] = useState("");
-    const [saveBooks, setSaveBooks] = useState({
-        title: "",
-        authors: [],
-        description: "",
-        image: "",
-        link: ""
-    })
 
     useEffect(() => searchBooks("Coding"), []);
 
     function handleInputChange(event) {
-        const { name, value, id } = event.target;
-        console.log(id);
+        const { value } = event.target;
         setUserQuery(value);
     };
 
