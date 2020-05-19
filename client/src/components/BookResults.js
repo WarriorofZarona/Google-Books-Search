@@ -1,7 +1,21 @@
 import React from "react";
 import Container from "./Container";
+import API from "../utils/API";
 
 function BookResults(props) {
+
+    function saveBooks(event) {
+        event.preventDefault();
+        const data = {
+            title: props.title,
+            authors: props.authors,
+            description: props.description,
+            image: props.image,
+            link: props.link
+        }
+        API.saveBook(data)
+            .catch(err => console.log(err));
+    }
 
     return (
         <li className="list-group-item border border-dark p-2 m-2 p-1">
@@ -15,7 +29,7 @@ function BookResults(props) {
                     </div>
                     <div className="col-6 text-right">
                         <a href={props.link}><button className="btn btn-info m-1" type="button">View</button></a>
-                        <button className="btn btn-info m-1" type="button">Save</button>
+                        <button className="btn btn-info m-1" onClick={saveBooks} type="button">Save</button>
                     </div>
                 </div>
                 <div className="row">

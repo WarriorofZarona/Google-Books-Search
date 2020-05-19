@@ -44,12 +44,6 @@ function Search() {
         searchBooks(userQuery);
     };
 
-    function handleBookSave(event) {
-        event.preventDefault();
-        //Trying to use the save button here to save the data of the list to the database,
-        //Pondering about how to target the data properly
-
-    }
 
     return (
         <div>
@@ -64,7 +58,6 @@ function Search() {
                             description={result.volumeInfo.description}
                             image={result.volumeInfo.imageLinks.thumbnail}
                             link={result.volumeInfo.infoLink}
-                            handler={handleBookSave}
                         />))}
                 </List>
             </ResultWrapper>
