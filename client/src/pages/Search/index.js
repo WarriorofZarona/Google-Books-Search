@@ -4,7 +4,6 @@ import ResultWrapper from "../../components/ResultWrapper";
 import BookResults from "../../components/BookResults";
 import { List } from "../../components/List";
 import API from "../../utils/API";
-import { PromiseProvider } from "mongoose";
 
 
 function Search() {
@@ -22,22 +21,30 @@ function Search() {
     useEffect(() => searchBooks("Coding"), []);
 
     function handleInputChange(event) {
-        const { value } = event.target;
-        setUserQuery(value);
-    };
-
-    function handleInputSavedChange(event) {
         const { name, value } = event.target;
-        setSaveBooks({ ...props, [name]: value })
-    }
+
+        //conditional statement for input change?
+        // if () {
+        setUserQuery(value);
+        // } else {
+        // setSaveBooks({ ...props, [name]: value })
+        // }
+    };
 
     function searchBooks(query) {
         API.getBooks(query)
             .then(res => {
-                setBooks({ results: res.data.items })
+                if (res.data === undefined) {
+                    setBooks({ results: [] });
+                } else {
+                    setBooks({ results: res.data.items })
+                }
             })
+            .then(console.log(books))
             .catch(err => console.log(err));
     };
+
+    // function saveBook()
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -49,17 +56,16 @@ function Search() {
             <BookSearch inputChange={handleInputChange} handler={handleSubmit} />
             <ResultWrapper>
                 <List>
-                    {books ?
+                    {
                         books.results.map(result => (
                             <BookResults
                                 title={result.volumeInfo.title}
-                                authors={result.volumeInfo.authors}
+                                authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
                                 description={result.volumeInfo.description}
                                 image={result.volumeInfo.imageLinks.thumbnail}
                                 link={result.volumeInfo.infoLink}
-                            />
-                        ))
-                        : <h3 className="text-center">No results to show!</h3>}
+                            />))}
+                        )
                 </List>
             </ResultWrapper>
         </div>
