@@ -1,20 +1,19 @@
 import React from "react";
 import Container from "./Container";
-import API from "../utils/API"
 
 function SavedBooks(props) {
 
-
     return (
+
+
         <li className="list-group-item border border-dark p-2 m-2 p-1">
             <Container>
                 <div className="row">
                     <div className="col-8">
                         <h4>{props.title}</h4>
-                        <p> Written by {
-                            props.authors.map((author, index, arr) => (
-                                (index === arr.length - 1 ? author : author + ", ")
-                            ))}
+                        <p> Written by {props.authors.map((author, index, arr) => (
+                            (index === arr.length - 1 ? author : author + ", ")
+                        ))}
                         </p>
                     </div>
                     <div className="col-4 text-right">

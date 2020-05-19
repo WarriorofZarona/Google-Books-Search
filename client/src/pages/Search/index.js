@@ -27,7 +27,6 @@ function Search() {
                     setBooks({ results: res.data.items })
                 }
             })
-            .then(console.log(books))
             .catch(err => console.log(err));
     };
 
@@ -41,17 +40,19 @@ function Search() {
         <div>
             <BookSearch inputChange={handleInputChange} handler={handleSearchSubmit} />
             <ResultWrapper>
-                <List>
-                    {books.results.map(result => (
-                        <BookResults
-                            key={result.id}
-                            title={result.volumeInfo.title}
-                            authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
-                            description={result.volumeInfo.description}
-                            image={result.volumeInfo.imageLinks.thumbnail}
-                            link={result.volumeInfo.infoLink}
-                        />))}
-                </List>
+                {books.results.length ?
+                    <List>
+                        {books.results.map(result => (
+                            <BookResults
+                                key={result.id}
+                                title={result.volumeInfo.title}
+                                authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
+                                description={result.volumeInfo.description}
+                                image={result.volumeInfo.imageLinks.thumbnail}
+                                link={result.volumeInfo.infoLink}
+                            />))}
+                    </List> : (<h1>No results to show!</h1>)
+                }
             </ResultWrapper>
         </div>
     )

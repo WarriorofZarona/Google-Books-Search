@@ -6,6 +6,7 @@ function BookResults(props) {
 
     function saveBooks(event) {
         event.preventDefault();
+        alert("Saved " + props.title + "!")
         const data = {
             title: props.title,
             authors: props.authors,

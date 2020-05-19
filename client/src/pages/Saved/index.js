@@ -34,7 +34,7 @@ function Saved() {
 
     return (
         <SavedWrapper>
-            <List>
+            {savedBooks.length !== 0 ? (<List>
                 {savedBooks.map(result => (
                     <SavedBooks
                         key={result._id}
@@ -46,7 +46,7 @@ function Saved() {
                         link={result.link}
                         deleteBook={deleteBook}
                     />))}
-            </List>
+            </List>) : (<h1>No saved books!</h1>)}
         </SavedWrapper >
     )
 };
