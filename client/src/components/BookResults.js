@@ -9,9 +9,9 @@ function BookResults(props) {
                 <div className="row">
                     <div className="col-6">
                         <h4>{props.title}</h4>
-                        {props.authors === [] ? <p>No authors</p> :
-                            <p> Written by                                       {props.authors.map((author, index, arr) => (index === arr.length - 1 ? author : author + ", "))}
-                            </p>}
+                        {props.authors.length ?
+                            <p> Written by {props.authors.map((author, index, arr) => (index === arr.length - 1 ? author : author + ", "))}
+                            </p> : <p>No authors to display</p>}
                     </div>
                     <div className="col-6 text-right">
                         <a href={props.link}><button className="btn btn-info m-1" type="button">View</button></a>

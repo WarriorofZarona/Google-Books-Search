@@ -21,14 +21,9 @@ function Search() {
     useEffect(() => searchBooks("Coding"), []);
 
     function handleInputChange(event) {
-        const { name, value } = event.target;
-
-        //conditional statement for input change?
-        // if () {
+        const { name, value, id } = event.target;
+        console.log(id);
         setUserQuery(value);
-        // } else {
-        // setSaveBooks({ ...props, [name]: value })
-        // }
     };
 
     function searchBooks(query) {
@@ -44,28 +39,33 @@ function Search() {
             .catch(err => console.log(err));
     };
 
-    // function saveBook()
-
-    function handleSubmit(event) {
+    function handleSearchSubmit(event) {
         event.preventDefault();
         searchBooks(userQuery);
     };
 
+    function handleBookSave(event) {
+        event.preventDefault();
+        //Trying to use the save button here to save the data of the list to the database,
+        //Pondering about how to target the data properly
+
+    }
+
     return (
         <div>
-            <BookSearch inputChange={handleInputChange} handler={handleSubmit} />
+            <BookSearch inputChange={handleInputChange} handler={handleSearchSubmit} />
             <ResultWrapper>
                 <List>
-                    {
-                        books.results.map(result => (
-                            <BookResults
-                                title={result.volumeInfo.title}
-                                authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
-                                description={result.volumeInfo.description}
-                                image={result.volumeInfo.imageLinks.thumbnail}
-                                link={result.volumeInfo.infoLink}
-                            />))}
-                        )
+                    {books.results.map(result => (
+                        <BookResults
+                            key={result.id}
+                            title={result.volumeInfo.title}
+                            authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
+                            description={result.volumeInfo.description}
+                            image={result.volumeInfo.imageLinks.thumbnail}
+                            link={result.volumeInfo.infoLink}
+                            handler={handleBookSave}
+                        />))}
                 </List>
             </ResultWrapper>
         </div>
