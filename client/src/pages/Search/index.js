@@ -48,7 +48,7 @@ function Search() {
                                 title={result.volumeInfo.title}
                                 authors={result.volumeInfo.authors === undefined ? [] : result.volumeInfo.authors}
                                 description={result.volumeInfo.description}
-                                image={result.volumeInfo.imageLinks.thumbnail}
+                                image={result.volumeInfo.imageLinks === undefined ? "https://via.placeholder.com/150" : result.volumeInfo.imageLinks.thumbnail}
                                 link={result.volumeInfo.infoLink}
                             />))}
                     </List> : (<h1>No results to show!</h1>)
